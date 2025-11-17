@@ -74,3 +74,11 @@ nav a:hover { opacity: 0.9 }
 	.center-action{ font-size:16px; padding:14px 20px; border-radius:10px; }
 }
 
+/* System console styles */
+.system-console{ background: rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.04); padding:16px; border-radius:8px; margin-top:18px }
+.system-console .muted{ color: rgba(230,247,255,0.7) }
+.console-row{ display:flex; gap:12px; align-items:flex-start; margin-bottom:12px }
+.console-result{ flex:1; background: rgba(0,0,0,0.25); padding:12px; border-radius:8px; color:var(--text); font-family:monospace; font-size:13px }
+.console-error{ color: #ffb3b3; background: rgba(255,0,0,0.06); padding:8px; border-radius:6px; margin-top:8px }
+
+
