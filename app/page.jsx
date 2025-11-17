@@ -1,10 +1,19 @@
-import Link from "next/link";
+import Hero from "@/components/Hero";
 
 export default function HomePage() {
   return (
-    <div style={{ padding: 24 }}>
-      <h1>Welcome to GAME168</h1>
-      <p>Go to <Link href="/campaigns">Campaigns</Link> to view and manage campaigns.</p>
+    <div>
+      <Hero
+        title="GAME168 — Campaign operations, simplified"
+        subtitle="A secure, production-ready platform for managing marketing campaigns. Monitor health, review assets, and operate with confidence."
+        ctaLabel="ดูแคมเปญทั้งหมด"
+        ctaHref="/campaigns"
+      />
+
+      <main className="container">
+        <h2>Trusted by teams that move fast</h2>
+        <p className="muted">This console provides quick access to operational tools and diagnostics — accessible to admins and operators.</p>
+      </main>
     </div>
   );
 }
