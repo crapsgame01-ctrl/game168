@@ -18,11 +18,11 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-
-      - name: Setup Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: ${{ matrix.node }}
+  
+  - name: 'notify vercel'
+    uses: 'vercel/repository-dispatch/actions/status@v1'
+     with:
+      name: Vercel - game168: สำลี
 
       - name: Install dependencies
         run: npm ci
