@@ -9,7 +9,6 @@ export default function HomePage() {
         ctaLabel="ดูแคมเปญทั้งหมด"
         ctaHref="/campaigns"
       />
-
       <main className="container">
         <h2>Trusted by teams that move fast</h2>
         <p className="muted">This console provides quick access to operational tools and diagnostics — accessible to admins and operators.</p>
