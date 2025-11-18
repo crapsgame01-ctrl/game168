@@ -15,13 +15,14 @@ export default function HomePage() {
         <p className="muted">This console provides quick access to operational tools and diagnostics — accessible to admins and operators.</p>
       </main>
 
-      {/* --- นี่คือส่วนที่เพิ่มเข้ามาครับ --- */}
-      <footer className="site-footer">
-        <p>ข้อความสนับสนุนที่คุณต้องการใส่</p>
-        <p>&copy; 2025 GAME168. All rights reserved.</p>
-      </footer>
-      {/* ------------------------------ */}
-
+      <footer style={{ 
+  fontSize: '18px', 
+  textAlign: 'center', 
+  marginTop: '3rem' 
+}}>
+  <p> © 2025 GAME168 ตัวตึง </p>
+</footer>    
+      
     </div>
   );
 }
