@@ -1,31 +1,31 @@
-"use client";
-import Link from "next/link";
+import Hero from "@/components/Hero";
 
-export default function Navbar() {
+export default function HomePage() {
   return (
-    <header className="w-full border-b border-[#0ff4] bg-black/40 backdrop-blur-md">
-      <nav className="container flex items-center justify-between py-4">
-        
-        {/* Left Section */}
-        <div className="flex items-center gap-6">
-          <Link 
-            href="/" 
-            className="font-extrabold text-[18px] neon"
-            aria-label="GAME168 home"
-          >
-            GAME168
-          </Link>
+    <div>
+      <Hero
+        title="GAME168 — Campaign operations, simplified"
+        subtitle="A secure, production-ready platform for managing marketing campaigns. Monitor health, review assets, and operate with confidence."
+        ctaLabel="ดูแคมเปญทั้งหมด"
+        ctaHref="/campaigns"
+      />
+      
+      <main className="container">
+        <h2>Trusted by teams that move fast</h2>
+        <p className="muted">
+          This console provides quick access to operational tools and diagnostics — accessible to admins and operators.
+        </p>
+      </main>
 
-          <Link href="/campaigns" className="glow">Campaigns</Link>
-          <Link href="/admin" className="glow">Admin</Link>
-        </div>
-
-        {/* Right Section */}
-        <div>
-          <span className="muted">v0.1</span>
-        </div>
-
-      </nav>
-    </header>
+      <footer
+        style={{
+          fontSize: "18px",
+          textAlign: "center",
+          marginTop: "3rem",
+        }}
+      >
+        <p>© 2025 GAME168 ตัวตึง</p>
+      </footer>
+    </div>
   );
 }
