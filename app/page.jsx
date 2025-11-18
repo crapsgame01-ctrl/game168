@@ -19,8 +19,8 @@ export default function HomePage() {
   fontSize: '18px', 
   textAlign: 'center', 
   marginTop: '3rem' 
+    <p> © 2025 GAME168 ตัวตึง </p>
 }}>
-  <p> © 2025 GAME168 ตัวตึง </p>
 </footer>    
       
     </div>
