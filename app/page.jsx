@@ -1,35 +1,88 @@
-import Hero from "@/components/Hero";
+"use client";
 
-export default function HomePage() {
+import { useState } from "react";
+
+export default function Home() {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+
+  function handleLogin(e) {
+    e.preventDefault();
+    alert(`เข้าสู่ระบบ: ${username}`);
+  }
+
+  function handleRegister() {
+    alert("สมัครสมาชิก");
+  }
+
+  function handleLogout() {
+    alert("ออกจากระบบแล้ว");
+  }
+
+  function joinEvent() {
+    alert("เข้าร่วมกิจกรรมแล้ว!");
+  }
+
+  const buttonStyle =
+    "border border-white text-white px-4 py-2 rounded-xl hover:bg-white hover:text-black transition-all";
+
   return (
-    <div>
-      <Hero
-        title="GAME168 — Campaign operations, simplified"
-        subtitle="A secure, production-ready platform for managing marketing campaigns. Monitor health, review assets, and operate with confidence."
-        ctaLabel="ดูแคมเปญทั้งหมด"
-        ctaHref="/campaigns"
-      />
+    <div
+      style={{
+        background: "#020612",
+        color: "white",
+        minHeight: "100vh",
+        padding: "20px",
+      }}
+    >
+      <h1 style={{ fontSize: "32px", marginBottom: "20px" }}>
+        GAME ตัวตึง 🚀 | ระบบกิจกรรม
+      </h1>
 
-      <main className="container">
-        <h2>Trusted by teams that move fast</h2>
-        <p className="muted">This console provides quick access to operational tools and diagnostics — accessible to admins and operators.</p>
-      </main>
+      <form
+        onSubmit={handleLogin}
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          width: "280px",
+          gap: "10px",
+          marginBottom: "30px",
+        }}
+      >
+        <input
+          type="text"
+          placeholder="ชื่อผู้ใช้"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+          className="px-3 py-2 rounded bg-black text-white border border-gray-600"
+        />
 
-      {/* --- นี่คือส่วนที่เพิ่มเข้ามาครับ --- */}
-      <footer className="site-footer">
-        <p>ข้อความสนับสนุนที่คุณต้องการใส่</p>
-        <p>&copy; 2025 GAME168. All rights reserved.</p>
-      </footer>
-      {/* ------------------------------ */}
+        <input
+          type="password"
+          placeholder="รหัสผ่าน"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          className="px-3 py-2 rounded bg-black text-white border border-gray-600"
+        />
 
-      <footer style={{ 
-  fontSize: '18px', 
-  textAlign: 'center', 
-  marginTop: '3rem' 
-}}>
-  <p> © 2025 GAME168 ตัวตึง </p>
-</footer>    
-      
+        <button type="submit" className={buttonStyle}>
+          เข้าสู่ระบบ
+        </button>
+      </form>
+
+      <div style={{ display: "flex", gap: "10px" }}>
+        <button onClick={handleRegister} className={buttonStyle}>
+          สมัครสมาชิก
+        </button>
+
+        <button onClick={handleLogout} className={buttonStyle}>
+          ออกจากระบบ
+        </button>
+
+        <button onClick={joinEvent} className={buttonStyle}>
+          เข้าร่วมกิจกรรม
+        </button>
+      </div>
     </div>
   );
 }
