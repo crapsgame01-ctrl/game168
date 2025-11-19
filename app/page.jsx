@@ -1,38 +1,37 @@
 "use client";
-import { useState } from "react";
+import Link from "next/link";
 
-export default function RegisterPage() {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-
-  const handleRegister = (e: React.FormEvent) => {
-    e.preventDefault();
-    // TODO: ส่งข้อมูลไป API /register
-    alert(`สมัครสมาชิก: ${username}`);
-  };
-
+export default function HomePage() {
   return (
-    <main className="min-h-screen flex flex-col items-center justify-center px-6">
-      <h1 className="text-3xl font-bold mb-6">สมัครสมาชิก</h1>
-      <form onSubmit={handleRegister} className="flex flex-col gap-4 w-full max-w-xs">
-        <input
-          type="text"
-          placeholder="ชื่อผู้ใช้"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-          className="px-4 py-2 rounded-lg border border-gray-300"
-        />
-        <input
-          type="password"
-          placeholder="รหัสผ่าน"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          className="px-4 py-2 rounded-lg border border-gray-300"
-        />
-        <button className="px-4 py-2 rounded-lg bg-blue-500 text-white font-semibold hover:bg-blue-600">
-          ลงทะเบียน
-        </button>
-      </form>
+    <main className="min-h-screen flex flex-col items-center justify-center text-center px-6"
+      style={{
+        background: `radial-gradient(1200px 600px at 10% 10%, #00e5ff0f, transparent), 
+                     radial-gradient(900px 400px at 90% 90%, #ff4dff0a, transparent), 
+                     linear-gradient(180deg, #0b0f1a, #071226)`
+      }}
+    >
+      <h1 className="text-5xl font-bold mb-6 neon">GAME ตัวตึง </h1>
+      <p className="text-lg opacity-80 mb-10">
+        ศูนย์รวมเกมและกิจกรรมธีมนีออน ฟ้า-ชมพู 💙💗
+      </p>
+
+      <div className="flex flex-col gap-4 w-full max-w-xs">
+        <Link href="/campaigns">
+          <button className="w-full py-3 rounded-xl text-xl font-semibold text-white bg-white/10 border border-white/30 backdrop-blur-md hover:shadow-lg transition-all duration-200">
+            🎁 ร่วมกิจกรรม
+          </button>
+        </Link>
+        <Link href="/login">
+          <button className="w-full py-3 rounded-xl text-xl font-semibold text-white bg-white/10 border border-white/30 backdrop-blur-md hover:shadow-lg transition-all duration-200">
+            🔑 เข้าสู่ระบบ
+          </button>
+        </Link>
+        <Link href="/register">
+          <button className="w-full py-3 rounded-xl text-xl font-semibold text-white bg-white/10 border border-white/30 backdrop-blur-md hover:shadow-lg transition-all duration-200">
+            ✍️ สมัครสมาชิก
+          </button>
+        </Link>
+      </div>
     </main>
   );
 }
