@@ -1,6 +1,102 @@
-{
-  "version": 3,
-  "sources": [],
-  "sections": [
-    {"offset": {"line": 1, "column": 0}, "map": {"version":3,"sources":["file:///workspaces/game168-/app/globals.css"],"sourcesContent":[":root{\n\t--bg-1: #0b0f1a;\n\t--bg-2: #071226;\n\t--accent-1: #00e5ff;\n\t--accent-2: #ff4dff;\n\t--text: #e6f7ff;\n}\n\nhtml,body,#root{height:100%;}\nbody{\n\tmargin:0;\n\tbackground: radial-gradient(1200px 600px at 10% 10%, rgba(0,229,255,0.06), transparent),\n\t\t\t\t\t\t\tradial-gradient(900px 400px at 90% 90%, rgba(255,77,255,0.04), transparent),\n\t\t\t\t\t\t\tlinear-gradient(180deg,var(--bg-1),var(--bg-2));\n\tcolor:var(--text);\n\tfont-family: Inter, ui-sans-serif, system-ui, -apple-system, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial;\n}\n\n/* Neon glow utility */\n.neon {\n\ttext-shadow: 0 0 6px rgba(0,229,255,0.35), 0 0 12px rgba(255,77,255,0.12);\n}\n\n/* Buttons */\n.btn{\n\ttransition: transform .12s ease, box-shadow .12s ease;\n}\n.btn:hover{ transform: translateY(-2px); box-shadow: 0 6px 24px rgba(0,229,255,0.08); }\n\n/* simple container */\n.container{ max-width: 980px; margin: 0 auto; padding: 24px; }\n\nnav a { color: var(--text); margin-right: 8px; text-decoration: none }\nnav a:hover { opacity: 0.9 }\n\n\n/* small animations */\n.glow {\n\ttransition: box-shadow .18s ease, transform .12s ease;\n}\n.glow:hover { box-shadow: 0 10px 40px rgba(0,229,255,0.08); transform: translateY(-4px); }\n\n"],"names":[],"mappings":"AAAA;;;;;;;;AAQA;;;;AACA;;;;;;;AAUA;;;;AAKA;;;;AAGA;;;;;AAGA;;;;;;AAEA;;;;;;AACA;;;;AAIA;;;;AAGA"}}]
+/* 🌐 Global Variables */
+:root {
+  --bg-1: #0b0f1a;
+  --bg-2: #071226;
+  --accent-1: #00e5ff;  /* Neon Blue */
+  --accent-2: #ff4dff;  /* Neon Pink */
+  --text: #e6f7ff;
+}
+
+/* 🌐 Base Layout */
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  color: var(--text);
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial;
+}
+
+body {
+  background:
+    radial-gradient(1200px 600px at 10% 10%, #00e5ff0f, transparent),
+    radial-gradient(900px 400px at 90% 90%, #ff4dff0a, transparent),
+    linear-gradient(180deg, var(--bg-1), var(--bg-2));
+}
+
+/* ✨ Neon Text */
+.neon {
+  text-shadow: 0 0 6px #00e5ff59, 0 0 12px #ff4dff1f;
+}
+
+/* 📌 Fixed Header */
+.fixed-header-opaque {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: var(--bg-1);
+  z-index: 999;
+  padding: 1rem 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+/* 🖼 Panel / Card */
+.panel {
+  background: var(--bg-2);
+  padding: 24px;
+  border-radius: 8px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.panel:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px var(--accent-1), 0 0 15px var(--accent-2);
+}
+
+/* 🚏 NProgress Loading Bar */
+#nprogress .bar {
+  background: var(--accent-1) !important;
+  height: 3px !important;
+}
+
+#nprogress .peg {
+  box-shadow: 0 0 10px var(--accent-1), 0 0 5px var(--accent-1) !important;
+}
+
+/* 🔘 Buttons */
+.btn {
+  transition: transform 0.12s, box-shadow 0.12s;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px #00e5ff14;
+}
+
+/* 📦 Container */
+.container {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+/* 🔗 Navigation */
+nav a {
+  color: var(--text);
+  margin-right: 8px;
+  text-decoration: none;
+}
+
+nav a:hover {
+  opacity: 0.9;
+}
+
+/* ✨ Glow Effect */
+.glow {
+  transition: box-shadow 0.18s, transform 0.12s;
+}
+
+.glow:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 40px #00e5ff14;
 }
