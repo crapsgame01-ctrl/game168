@@ -1,38 +1,38 @@
-// /app/layout.tsx
 "use client";
+import { useState } from "react";
 
-import "./globals.css";
-import { useEffect } from "react";
+export default function LoginPage() {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
 
-export const metadata = {
-  title: "GAME ตัวตึง 🚭",
-  description: "เว็บไซต์เกมธีมนีออน ฟ้า-ชมพู โทนอนาคต",
-};
-
-// 🔒 ล็อกหน้าจอไม่ให้เอียง (Portrait Only)
-function useLockOrientation() {
-  useEffect(() => {
-    const lock = async () => {
-      try {
-        if ("orientation" in screen && screen.orientation.lock) {
-          await screen.orientation.lock("portrait");
-        }
-      } catch (err) {
-        console.warn("Orientation lock failed:", err);
-      }
-    };
-    lock();
-  }, []);
-}
-
-export default function RootLayout({ children }) {
-  useLockOrientation();
+  const handleLogin = (e: React.FormEvent) => {
+    e.preventDefault();
+    // TODO: เช็ค username/password ผ่าน API /login
+    alert(`เข้าสู่ระบบ: ${username}`);
+  };
 
   return (
-    <html lang="th">
-      <body className="app-body neon">
-        {children}
-      </body>
-    </html>
+    <main className="min-h-screen flex flex-col items-center justify-center px-6">
+      <h1 className="text-3xl font-bold mb-6">เข้าสู่ระบบ</h1>
+      <form onSubmit={handleLogin} className="flex flex-col gap-4 w-full max-w-xs">
+        <input
+          type="text"
+          placeholder="ชื่อผู้ใช้"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+          className="px-4 py-2 rounded-lg border border-gray-300"
+        />
+        <input
+          type="password"
+          placeholder="รหัสผ่าน"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          className="px-4 py-2 rounded-lg border border-gray-300"
+        />
+        <button className="px-4 py-2 rounded-lg bg-green-500 text-white font-semibold hover:bg-green-600">
+          เข้าสู่ระบบ
+        </button>
+      </form>
+    </main>
   );
 }
