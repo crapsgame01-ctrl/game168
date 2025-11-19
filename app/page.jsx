@@ -41,9 +41,7 @@ return ( <main className="min-h-screen flex flex-col items-center justify-center
       className="p-3 rounded-xl text-black"
     />
 
-    <button
-      type="submit"
-      className="px-6 py-3 bg-green-600 hover:bg-green-500 rounded-2xl shadow-lg transition"
+    <button className="px-4 py-2 rounded-xl border-2 border-white text-white shadow-[0_0_10px_white] hover:shadow-[0_0_20px_white] transition""
     >
       เข้าสู่ระบบ
     </button>
@@ -55,9 +53,8 @@ return ( <main className="min-h-screen flex flex-col items-center justify-center
     <button onClick={() => alert('เปิดระบบจัดอันดับผู้เล่น')} className="px-4 py-2 bg-green-500 text-white rounded-xl">จัดอันดับ</button>
     <button onClick={() => alert('เปิดหน้าโปรไฟล์ผู้ใช้')} className="px-4 py-2 bg-purple-500 text-white rounded-xl">โปรไฟล์</button>
     <button onClick={() => alert('เปิดรายการกิจกรรมทั้งหมด')} className="px-4 py-2 bg-red-500 text-white rounded-xl">กิจกรรมทั้งหมด</button>
+    <button onClick={() => alert('เปิดหน้าแคมเปญทั้งหมด')} className="px-4 py-2 bg-orange-500 text-white rounded-xl">ดูแคมเปญทั้งหมด</button>
   </div>
 </main>
   );
-}// public/banner.png // (ใส่รูปที่สร้างไว้ในโฟลเดอร์ public)
-
-// public/sound/electric.mp3 // (ใส่ไฟล์เสียงตามที่ต้องการ)
+}
