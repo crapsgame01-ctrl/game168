@@ -1,99 +1,63 @@
-// src/pages/index.tsx
-import { useState } from "react";
+// Example Next.js App Router structure // app/layout.jsx import "./globals.css";
 
-export default function Home() {
-  const [message, setMessage] = useState("");
-  const [isOverlay, setOverlay] = useState(false);
+export default function RootLayout({ children }) { return ( <html lang="th"> <body className="bg-black text-white font-sans"> {children} </body> </html> ); }
 
-  // ฟังก์ชันทดสอบ API draw
-  const handleDraw = async () => {
-    try {
-      const res = await fetch("/api/draw");
-      const data = await res.json();
-      setMessage(data.message || "ได้รับของเรียบร้อย!");
-      playSound("/sounds/draw.mp3");
-    } catch (err) {
-      setMessage("เกิดข้อผิดพลาด");
-      console.error(err);
-    }
-  };
+// app/page.jsx 'use client'; import { useState } from 'react';
 
-  // ฟังก์ชันโชว์ Overlay
-  const toggleOverlay = () => setOverlay(!isOverlay);
+export default function Home() { const [username, setUsername] = useState(""); const [password, setPassword] = useState("");
 
-  // ฟังก์ชันเล่นเสียง
-  const playSound = (url: string) => {
-    const audio = new Audio(url);
-    audio.play();
-  };
+function handleLogin(e) { e.preventDefault(); alert(เข้าสู่ระบบ: ${username}); }
 
-  return (
-    <div className="min-h-screen bg-black text-white font-sans relative">
-      {/* Header */}
-      <header className="text-center py-8 neon-text">
-        <h1 className="text-5xl font-bold">GAME ตัวตึง 🎁</h1>
-        <p className="text-blue-400 mt-2">สนุกกับเกมและรับของรางวัล!</p>
-      </header>
+function playSound(url) { const audio = new Audio(url); audio.play(); }
 
-      {/* Main Content */}
-      <main className="flex flex-col items-center gap-6">
-        {/* ปุ่มฟังก์ชันหลัก */}
-        <button
-          onClick={handleDraw}
-          className="px-8 py-4 bg-blue-600 hover:bg-blue-500 rounded-xl neon-button transition"
-        >
-          แจกของรางวัล
-        </button>
+return ( <main className="min-h-screen flex flex-col items-center justify-center p-6 space-y-10"> <h1 className="text-4xl font-bold text-blue-400 drop-shadow-md">GAME ตัวตึง 🚭</h1>
 
-        <button
-          onClick={toggleOverlay}
-          className="px-8 py-4 bg-purple-600 hover:bg-purple-500 rounded-xl neon-button transition"
-        >
-          Overlay Effect
-        </button>
+<img src="/banner.png" alt="GAME ตัวตึง" className="w-full max-w-4xl rounded-xl shadow-lg" />
 
-        {/* แสดงข้อความผลลัพธ์ */}
-        {message && (
-          <div className="mt-4 p-4 bg-gray-900 rounded-lg border border-blue-500">
-            {message}
-          </div>
-        )}
+  <button
+    onClick={() => playSound('/sound/electric.mp3')}
+    className="px-6 py-3 bg-blue-600 hover:bg-blue-500 rounded-2xl shadow-lg transition"
+  >
+    🔊 เล่นเสียงเอฟเฟกต์
+  </button>
 
-        {/* รูปประกอบ */}
-        <img
-          src="/images/game-banner.png"
-          alt="GAME ตัวตึง Banner"
-          className="w-80 rounded-xl shadow-lg neon-glow mt-6"
-        />
-      </main>
+  <form
+    onSubmit={handleLogin}
+    className="flex flex-col space-y-4 bg-neutral-900 p-6 rounded-2xl shadow-xl w-full max-w-md"
+  >
+    <input
+      type="text"
+      placeholder="ชื่อผู้ใช้"
+      value={username}
+      onChange={(e) => setUsername(e.target.value)}
+      className="p-3 rounded-xl text-black"
+    />
 
-      {/* Overlay */}
-      {isOverlay && (
-        <div
-          className="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50"
-          onClick={toggleOverlay}
-        >
-          <div className="text-4xl text-blue-400 animate-pulse">
-            ⚡ Neon Overlay ⚡
-          </div>
-        </div>
-      )}
+    <input
+      type="password"
+      placeholder="รหัสผ่าน"
+      value={password}
+      onChange={(e) => setPassword(e.target.value)}
+      className="p-3 rounded-xl text-black"
+    />
 
-      <style jsx>{`
-        .neon-text {
-          text-shadow:
-            0 0 5px #0ff,
-            0 0 10px #0ff,
-            0 0 20px #0ff,
-            0 0 40px #0ff;
-        }
-        .neon-button {
-          box-shadow: 0 0 10px #0ff, 0 0 20px #0ff;
-        }
-        .neon-glow {
-          box-shadow: 0 0 15px #0ff, 0 0 30px #0ff;
-        }
-      `}</style>
-    </div>
+    <button
+      type="submit"
+      className="px-6 py-3 bg-green-600 hover:bg-green-500 rounded-2xl shadow-lg transition"
+    >
+      เข้าสู่ระบบ
+    </button>
+  </form>
+  {/* ปุ่มฟังก์ชันเพิ่มเติม */}
+
+  <div className="mt-6 flex flex-col gap-3">
+    <button onClick={() => alert('เปิดระบบสุ่มของขวัญ')} className="px-4 py-2 bg-blue-500 text-white rounded-xl">สุ่มของขวัญ</button>
+    <button onClick={() => alert('เปิดระบบจัดอันดับผู้เล่น')} className="px-4 py-2 bg-green-500 text-white rounded-xl">จัดอันดับ</button>
+    <button onClick={() => alert('เปิดหน้าโปรไฟล์ผู้ใช้')} className="px-4 py-2 bg-purple-500 text-white rounded-xl">โปรไฟล์</button>
+    <button onClick={() => alert('เปิดรายการกิจกรรมทั้งหมด')} className="px-4 py-2 bg-red-500 text-white rounded-xl">กิจกรรมทั้งหมด</button>
+  </div>
+</main>
   );
-}
+}// public/banner.png // (ใส่รูปที่สร้างไว้ในโฟลเดอร์ public)
+
+// public/sound/electric.mp3 // (ใส่ไฟล์เสียงตามที่ต้องการ)
