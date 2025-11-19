@@ -8,7 +8,7 @@ export default function HomePage() {
       
       {/* Title */}
       <h1 className="text-4xl font-bold mb-4 neon">
-        GAME ตัวตึง 🚭
+        GAME ตัวตึง 
       </h1>
 
       <p classname="text-lg opacity-80 mb-10">
