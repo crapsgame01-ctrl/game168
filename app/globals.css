@@ -1,85 +1,106 @@
-<!DOCTYPE html><html lang="th">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>GAME168 - หน้าแรก</title>
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: #03050a;
-      color: white;
-      text-align: center;
-    }header {
-  padding: 20px;
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(5px);
-  border-bottom: 1px solid rgba(255,255,255,0.1);
-}
+/* [โครงการ]/app/globals.css [ไคลเอนต์แอป] (css) */
+:ราก {
+  --bg-1: #0b0f1a;
+  --bg-2: #071226;
+  --accent-1: #00e5ff;
+  --accent-2: #ff4dff;
+  --ข้อความ: #e6f7ff;
+-
 
-h1 {
-  color: #4fd4ff;
-  font-size: 40px;
-  text-shadow: 0 0 10px #4fd4ff;
-}
+html, เนื้อหา, #root {
+  ส่วนสูง: 100%;
+-
+
+ร่างกาย {
+  พื้นหลัง: radial-gradient(1200px 600px ที่ 10% 10%, #00e5ff0f, โปร่งใส), radial-gradient(900px 400px ที่ 90% 90%, #ff4dff0a, โปร่งใส), linear-gradient(180deg, var(--bg-1), var(--bg-2));
+  สี: var(--text);
+  ระยะขอบ: 0;
+  ฟอนต์: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial;
+-
+
+.นีออน {
+  ข้อความเงา: 0 0 6px #00e5ff59, 0 0 12px #ff4dff1f;
+-
 
 .btn {
-  display: inline-block;
-  margin: 10px;
-  padding: 14px 28px;
-  border: 2px solid white;
-  border-radius: 10px;
-  background: transparent;
-  color: white;
-  font-size: 18px;
-  cursor: pointer;
-  transition: 0.3s;
-}
-.btn:hover {
-  background: white;
-  color: black;
+  การเปลี่ยนผ่าน: แปลง .12 วินาที, เงากล่อง .12 วินาที;
+-
+
+.btn:โฮเวอร์ {
+  แปลง: translateY(-2px);
+  กล่องเงา: 0 6px 24px #00e5ff14;
+-
+
+.คอนเทนเนอร์ {
+  ความกว้างสูงสุด: 980px;
+  ระยะขอบ: 0 อัตโนมัติ;
+  ระยะห่าง: 24 พิกเซล;
+-
+
+นำทาง {
+  สี: var(--text);
+  ระยะขอบขวา: 8px;
+  การตกแต่งข้อความ: ไม่มี;
+-
+
+nav a:hover {
+  ความทึบแสง: .9;
+-
+
+.เรืองแสง {
+  การเปลี่ยนผ่าน: เงากล่อง .18 วินาที, การแปลง .12 วินาที;
+-
+
+.เรืองแสง:โฮเวอร์ {
+  แปลง: translateY(-4px);
+  กล่องเงา: 0 10px 40px #00e5ff14;
+-
+
+.fixed-header-opaque {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  /* ใช้สีพื้นหลังที่ทึบ (#0b0f1a คือค่าของ --bg-1) */
+  background-color: #0b0f1a;
+  z-index: 999; /* ให้มันอยู่เหนือทุกอย่าง */
+  padding: 1rem 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
 }
 
-.container {
-  margin-top: 40px;
+/* 🛠️ 2. สไตล์สำหรับ Loading Bar (NProgress) */
+#nprogress {
+    pointer-events: none;
 }
 
-.section-box {
-  width: 80%;
-  margin: 20px auto;
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(255,255,255,0.1);
-  padding: 20px;
-  border-radius: 15px;
+#nprogress .bar {
+    /* ใช้สี Neon (#00e5ff คือค่าของ --accent-1) */
+    background: #00e5ff !important; 
+    height: 3px !important;
 }
 
-  </style>
-</head>
-<body><header>
-  <h1>GAME168</h1>
-  <p>ระบบกิจกรรม & สุ่มรางวัล</p>  <div>
-    <button class="btn" id="loginBtn">เข้าสู่ระบบ</button>
-    <button class="btn" id="signupBtn">สมัครสมาชิก</button>
-    <button class="btn" id="logoutBtn">ออกจากระบบ</button>
-  </div>
-</header><div class="container">  <div class="section-box">
-    <h2>🎯 แคมเปญและกิจกรรม</h2>
-    <button class="btn">เข้าร่วมกิจกรรม</button>
-    <button class="btn">ดูทั้งหมด</button>
-  </div>  <div class="section-box">
-    <h2>🎁 ระบบสุ่มรางวัล</h2>
-    <button class="btn">สุ่มรางวัล</button>
-  </div>  <div class="section-box">
-    <h2>📊 อันดับผู้เล่น</h2>
-    <button class="btn">ดูอันดับ</button>
-  </div>  <div class="section-box">
-    <h2>📚 ประวัติการใช้งาน</h2>
-    <button class="btn">ดูประวัติ</button>
-  </div></div><script>
-// ปุ่มตัวอย่าง (คุณสามารถผูก Supabase ได้ทีหลัง)
-document.getElementById('loginBtn').onclick = () => alert('เข้าสู่ระบบ');
-document.getElementById('signupBtn').onclick = () => alert('สมัครสมาชิก');
-document.getElementById('logoutBtn').onclick = () => alert('ออกจากระบบ');
-</script></body>
-</html>
+#nprogress .peg {
+    display: block;
+    position: absolute;
+    right: 0px;
+    width: 100px;
+    height: 100%;
+    /* เอฟเฟกต์เรืองแสง */
+    box-shadow: 0 0 10px #00e5ff, 0 0 5px #00e5ff !important;
+    opacity: 1.0;
+    transform: rotate(3deg) translate(0px, -4px);
+}
+
+/* 🛠️ 3. สไตล์สำหรับ Card/Panel */
+.panel {
+  background: #071226; /* ค่าของ --bg-2 */
+  padding: 24px;
+  border-radius: 8px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.panel:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px #00e5ff, 0 0 15px #ff4dff;
+}
