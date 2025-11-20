@@ -1,111 +1,197 @@
-export default function Home() {
-  return (
-    <main
-      className="
-        min-h-screen 
-        text-white 
-        px-6 
-        py-16 
-        bg-gradient-to-b from-[#0b1623] to-[#07101a]
-      "
-    >
+:root {
+  --bg-1: #0b1220;
+  --bg-2: #071226;
+  --accent-1: #0ea5a4; /* น้ำเงินเขียวแบบโปร */
+  --accent-2: #7c3aed; /* ม่วงนีออน */
+  --muted: #94a3b8;
+  --text: #e6eef6;
+  --surface: rgba(255, 255, 255, 0.02);
+}
 
-      {/* NAV */}
-      <nav className="flex gap-6 text-sm font-semibold">
-        <a href="/" className="hover:opacity-80">เกม168</a>
-        <a href="/campaigns" className="hover:opacity-80">การตลาด</a>
-        <a href="/system" className="hover:opacity-80">ผู้ดูแลระบบ</a>
+/* GLOBAL */
+html, body, #root {
+  height: 100%;
+}
 
-        <span className="ml-auto text-gray-400">เวอร์ชั่น 0.1</span>
-      </nav>
+body {
+  margin: 0;
+  background:
+    radial-gradient(1200px 600px at 10% 10%, rgba(14,165,164,0.03), transparent),
+    radial-gradient(900px 400px at 90% 90%, rgba(124,58,237,0.02), transparent),
+    linear-gradient(180deg, var(--bg-1), var(--bg-2));
+  color: var(--text);
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 
-      {/* HERO */}
-      <section className="mt-20 max-w-3xl">
+/* TYPOGRAPHY */
+h1 {
+  font-size: clamp(28px, 3.6vw, 42px);
+  line-height: 1.05;
+  margin: 0 0 12px;
+  color: var(--text);
+}
 
-        <h1 className="text-3xl md:text-4xl font-bold leading-snug">
-          GAME168 — การดำเนินการ<br />แคมเปญแบบง่าย
-        </h1>
+h2 {
+  font-size: clamp(20px, 2.4vw, 26px);
+  margin: 0 0 10px;
+  color: var(--text);
+}
 
-        <p className="mt-4 text-gray-300 max-w-xl">
-          แพลตฟอร์มที่พร้อมใช้งานสำหรับการตรวจสอบแคมเปญการตลาด 
-          ตรวจสอบข้อมูล และจัดการงานได้อย่างมั่นใจ
-        </p>
+p {
+  color: var(--muted);
+  margin: 0 0 12px;
+}
 
-        {/* BUTTON GROUP (เหมือนบนรูป 3 ปุ่มแนวนอน) */}
-        <div className="flex flex-wrap gap-4 mt-8">
+/* LAYOUT */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 32px;
+}
 
-          <a
-            href="/create"
-            className="
-              px-10 py-3 rounded-full font-semibold text-white
-              bg-gradient-to-r from-[#19c3fb] to-[#6c4dfc]
-              shadow-[0_0_15px_#19c3fb]
-              hover:scale-105 transition
-            "
-          >
-            สร้างกิจกรรม
-          </a>
+/* HEADER */
+.site-header {
+  background: linear-gradient(180deg, rgba(255,255,255,0.01), transparent);
+  border-bottom: 1px solid rgba(255,255,255,0.02);
+  position: sticky;
+  top: 0;
+  z-index: 40;
+}
 
-          <a
-            href="/signup"
-            className="
-              px-10 py-3 rounded-full font-semibold text-white
-              bg-gradient-to-r from-[#19c3fb] to-[#6c4dfc]
-              shadow-[0_0_15px_#19c3fb]
-              hover:scale-105 transition
-            "
-          >
-            ลงทะเบียน
-          </a>
+.site-header .muted {
+  color: var(--muted);
+}
 
-          <a
-            href="/login"
-            className="
-              px-10 py-3 rounded-full font-semibold text-white
-              bg-gradient-to-r from-[#19c3fb] to-[#6c4dfc]
-              shadow-[0_0_15px_#19c3fb]
-              hover:scale-105 transition
-            "
-          >
-            ล็อกอิน
-          </a>
+/* NEON TEXT */
+.neon {
+  text-shadow:
+    0 0 6px rgba(14,165,164,0.18),
+    0 0 12px rgba(124,58,237,0.08);
+}
 
-        </div>
+/* BUTTONS */
+.btn {
+  transition: transform .12s ease, box-shadow .12s ease, opacity .12s ease;
+  border-radius: 8px;
+  padding: 10px 14px;
+  background: transparent;
+  color: var(--text);
+  cursor: pointer;
+  border: none;
+}
 
-      </section>
+.btn.primary {
+  background: linear-gradient(90deg, var(--accent-1), var(--accent-2));
+  color: #fff;
+  font-weight: 700;
+}
 
-      {/* DESCRIPTION */}
-      <section className="mt-20 max-w-2xl text-center mx-auto">
-        <h2 className="text-lg font-bold">
-          ได้รับความไว้วางใจจากทีมงานที่เคลื่อนใหวรวดเร็ว
-        </h2>
+.btn:focus {
+  outline: 3px solid rgba(255,255,255,0.06);
+  outline-offset: 2px;
+}
 
-        <p className="text-gray-400 mt-2">
-          แพลตฟอร์มตรวจสอบที่ช่วยให้ทีมทำงานได้อย่างรวดเร็ว 
-          รองรับการปฏิบัติงานแบบเรียลไทม์
-        </p>
-      </section>
+.btn:hover {
+  transform: translateY(-2px);
+}
 
-      {/* ACTIVITY CENTER */}
-      <div className="flex justify-center mt-16">
-        <a
-          href="/campaigns"
-          className="
-            px-12 py-4 rounded-full font-semibold text-white
-            bg-gradient-to-r from-[#19c3fb] to-[#6c4dfc]
-            shadow-[0_0_18px_#19c3fb]
-            hover:scale-110 transition
-          "
-        >
-          ศูนย์กิจกรรม
-        </a>
-      </div>
+/* NAV */
+nav a {
+  color: var(--text);
+  margin-right: 12px;
+  text-decoration: none;
+  font-weight: 600;
+}
 
-      {/* FOOTER */}
-      <footer className="mt-20 text-center text-gray-500">
-        © 2025 GAME168 คนเดียว
-      </footer>
+nav a:hover {
+  opacity: 0.95;
+}
 
-    </main>
-  );
+/* GLOW UTILITIES */
+.glow {
+  transition: box-shadow .18s ease, transform .12s ease, opacity .12s ease;
+}
+
+.glow:hover {
+  box-shadow: 0 10px 40px rgba(14,165,164,0.06);
+  transform: translateY(-4px);
+  opacity: 0.98;
+}
+
+/* CENTER ACTION BUTTON */
+.center-action-container {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  z-index: 60;
+}
+
+.center-action {
+  pointer-events: auto;
+  background: linear-gradient(90deg, rgba(14,165,164,0.92), rgba(124,58,237,0.92));
+  color: #fff;
+  padding: 14px 22px;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 700;
+  border: none;
+  box-shadow: 
+    0 12px 40px rgba(2,6,23,0.6),
+    0 0 20px rgba(124,58,237,0.06);
+  cursor: pointer;
+  transition: transform .12s ease, box-shadow .12s ease, opacity .12s ease;
+}
+
+.center-action:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 60px rgba(0,0,0,0.55);
+}
+
+.center-action:focus {
+  outline: 3px solid rgba(255,255,255,0.12);
+  outline-offset: 3px;
+}
+
+/* MOBILE */
+@media (max-width: 520px) {
+  .center-action {
+    font-size: 15px;
+    padding: 14px 20px;
+    border-radius: 10px;
+  }
+}
+
+/* SYSTEM CONSOLE BLOCK */
+.system-console {
+  background: var(--surface);
+  border: 1px solid rgba(255,255,255,0.04);
+  padding: 18px;
+  border-radius: 10px;
+  margin-top: 18px;
+}
+
+.system-console .muted {
+  color: var(--muted);
+}
+
+.console-row {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  margin-bottom: 12px;
+}
+
+.console-result {
+  flex: 1;
+  background: rgba(0,0,0,0.25);
+  padding: 12px;
+  border-radius: 8px;
+  color: var(--text);
+  font-family: monospace;
+  font-size: 13px;
 }
