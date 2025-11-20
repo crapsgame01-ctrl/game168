@@ -1,88 +1,88 @@
-"use client";
-
-import { useState } from "react";
-
-export default function Home() {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-
-  function handleLogin(e) {
-    e.preventDefault();
-    alert(`เข้าสู่ระบบ: ${username}`);
-  }
-
-  function handleRegister() {
-    alert("สมัครสมาชิก");
-  }
-
-  function handleLogout() {
-    alert("ออกจากระบบแล้ว");
-  }
-
-  function joinEvent() {
-    alert("เข้าร่วมกิจกรรมแล้ว!");
-  }
-
-  const buttonStyle =
-    "border border-white text-white px-4 py-2 rounded-xl hover:bg-white hover:text-black transition-all";
-
-  return (
-    <div
-      style={{
-        background: "#020612",
-        color: "white",
-        minHeight: "100vh",
-        padding: "20px",
-      }}
-    >
-      <h1 style={{ fontSize: "32px", marginBottom: "20px" }}>
-        GAME ตัวตึง 🚀 | ระบบกิจกรรม
-      </h1>
-
-      <form
-        onSubmit={handleLogin}
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          width: "280px",
-          gap: "10px",
-          marginBottom: "30px",
-        }}
-      >
-        <input
-          type="text"
-          placeholder="ชื่อผู้ใช้"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-          className="px-3 py-2 rounded bg-black text-white border border-gray-600"
-        />
-
-        <input
-          type="password"
-          placeholder="รหัสผ่าน"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          className="px-3 py-2 rounded bg-black text-white border border-gray-600"
-        />
-
-        <button type="submit" className={buttonStyle}>
-          เข้าสู่ระบบ
-        </button>
-      </form>
-
-      <div style={{ display: "flex", gap: "10px" }}>
-        <button onClick={handleRegister} className={buttonStyle}>
-          สมัครสมาชิก
-        </button>
-
-        <button onClick={handleLogout} className={buttonStyle}>
-          ออกจากระบบ
-        </button>
-
-        <button onClick={joinEvent} className={buttonStyle}>
-          เข้าร่วมกิจกรรม
-        </button>
-      </div>
-    </div>
-  );
+<!DOCTYPE html><html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GAME168 - หน้าแรก</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #03050a;
+      color: white;
+      text-align: center;
+    }header {
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(5px);
+  border-bottom: 1px solid rgba(255,255,255,0.1);
 }
+
+h1 {
+  color: #4fd4ff;
+  font-size: 40px;
+  text-shadow: 0 0 10px #4fd4ff;
+}
+
+.btn {
+  display: inline-block;
+  margin: 10px;
+  padding: 14px 28px;
+  border: 2px solid white;
+  border-radius: 10px;
+  background: transparent;
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.btn:hover {
+  background: white;
+  color: black;
+}
+
+.container {
+  margin-top: 40px;
+}
+
+.section-box {
+  width: 80%;
+  margin: 20px auto;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  padding: 20px;
+  border-radius: 15px;
+}
+
+  </style>
+</head>
+<body><header>
+  <h1>GAME168</h1>
+  <p>ระบบกิจกรรม & สุ่มรางวัล</p>  <div>
+    <button class="btn" id="loginBtn">เข้าสู่ระบบ</button>
+    <button class="btn" id="signupBtn">สมัครสมาชิก</button>
+    <button class="btn" id="logoutBtn">ออกจากระบบ</button>
+  </div>
+</header><div class="container">  <div class="section-box">
+    <h2>🎯 แคมเปญและกิจกรรม</h2>
+    <button class="btn">เข้าร่วมกิจกรรม</button>
+    <button class="btn">ดูทั้งหมด</button>
+  </div>  <div class="section-box">
+    <h2>🎁 ระบบสุ่มรางวัล</h2>
+    <button class="btn">สุ่มรางวัล</button>
+  </div>  <div class="section-box">
+    <h2>📊 อันดับผู้เล่น</h2>
+    <button class="btn">ดูอันดับ</button>
+  </div>  <div class="section-box">
+    <h2>📚 ประวัติการใช้งาน</h2>
+    <button class="btn">ดูประวัติ</button>
+  </div></div><script>
+// ปุ่มตัวอย่าง (คุณสามารถผูก Supabase ได้ทีหลัง)
+document.getElementById('loginBtn').onclick = () => alert('เข้าสู่ระบบ');
+document.getElementById('signupBtn').onclick = () => alert('สมัครสมาชิก');
+document.getElementById('logoutBtn').onclick = () => alert('ออกจากระบบ');
+</script></body>
+</html>
+
+</body>
+</html>
